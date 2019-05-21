@@ -14,3 +14,13 @@
 ## 11,2
 ## 12,3
 ##
+datos = open('data.csv', 'r').readlines()
+datos = [fila[:-1].split("\t") for fila in datos]
+
+registrosMeses = [fila[2].split("-")[1] for fila in datos]
+
+meses = sorted(set(registrosMeses))
+
+for mes in meses:
+    print ("{},{}".format(mes,registrosMeses.count(mes)))
+    

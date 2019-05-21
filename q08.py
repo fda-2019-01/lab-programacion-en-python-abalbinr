@@ -17,3 +17,13 @@
 ## ('9', ['A', 'B', 'C', 'E'])
 ##
 ##
+datos = open('data.csv', 'r').readlines()
+datos = [fila[:-1].split("\t") for fila in datos]
+
+valores = sorted(set([fila[1] for fila in datos]))
+
+agrupamiento = [sorted([fila[0] for fila in datos if (valor == fila[1])]) for valor in valores]
+
+for indice in range(len(valores)):
+    tupla = (valores[indice] , agrupamiento[indice])
+    print (tupla)

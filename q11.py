@@ -11,3 +11,8 @@
 ## E,2,3
 ## E,3,3
 ##
+datos = open('data.csv', 'r').readlines()
+datos = [fila[:-1].split("\t") for fila in datos]
+
+for fila in datos:
+    print("{},{},{}".format( fila[0] , len(fila[3].split(",")) , len(fila[4].split(",")) ))

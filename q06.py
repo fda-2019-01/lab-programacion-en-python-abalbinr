@@ -13,3 +13,22 @@
 ## iii,2,7
 ## jjj,2,5
 ##
+datos = open('data.csv', 'r').readlines()
+datos = [fila[:-1].split("\t") for fila in datos]
+
+agrupamiento = [i.split(":") for fila in datos for i in fila[4].split(",")]
+
+letras = sorted(set([lista[0] for lista in agrupamiento]))
+
+dicc = {letra : [] for letra in letras}
+
+for lista in agrupamiento:
+    dicc[lista[0]] +=  [int(lista[1])]
+
+for letra in letras:
+    print ("{},{},{}".format(letra,min(dicc[letra]),max(dicc[letra])))
+
+
+    
+
+        
